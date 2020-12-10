@@ -10,12 +10,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 10.x
+      - name: nrwl/cli install
+        run: |
+          npm install -g @nrwl/cli
       - name: npm install
         run: |
           npm install
-      - name: nx install
-        run: |
-          npm install -g nx
       - name: run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.3.x
