@@ -18,7 +18,7 @@ jobs:
           npm install -g @lhci/cli@0.6.1
           lhci autorun --config monorepo-ci-space/lighthouserc.js || echo "LHCI failed!"
       - name: Upload Reports
-        uses: shallwefootball/s3-upload-action@v1.1.3
+        uses: shallwefootball/s3-upload-action@master
         with:
           source_dir: /tmp/reports
           destination_dir: ''
