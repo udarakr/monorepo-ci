@@ -15,7 +15,7 @@ module.exports = {
       upload: {
         /* Add configuration here */
         target: 'filesystem',
-        outputDir: './lh/reports'
+        outputDir: './lh/reports/app1'
       },
     },
   };

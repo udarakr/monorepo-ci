@@ -16,7 +16,8 @@ jobs:
       - name: run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.6.1
-          lhci autorun --config monorepo-ci-space/lighthouserc.js || echo "LHCI failed!"
+          lhci autorun --config monorepo-ci-space/lighthouse/lighthouserc-app1.js || echo "LHCI app1 failed!"
+          lhci autorun --config monorepo-ci-space/lighthouse/lighthouserc-app2.js || echo "LHCI app2 failed!"
       - name: Upload Reports
         uses: jakejarvis/s3-sync-action@v0.5.1
         with:
