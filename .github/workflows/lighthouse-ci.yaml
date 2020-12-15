@@ -15,12 +15,13 @@ jobs:
           npm install --prefix monorepo-ci-space/
       - name: run Lighthouse CI
         run: |
-          npm install -g @lhci/cli@0.3.x
+          npm install -g @lhci/cli@0.6.1
           lhci autorun --config monorepo-ci-space/lighthouserc.js || echo "LHCI failed!"
       - name: Upload Reports
         uses: shallwefootball/s3-upload-action@v1.1.3
         with:
           source_dir: /tmp/reports
+          destination_dir: ''
           aws_key_id: ${{ secrets.LIGHTHOUSE_AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.LIGHTHOUSE_AWS_SECRET_ACCESS_KEY }}
           aws_bucket: lighthouse-ci-reports
