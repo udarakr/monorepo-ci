@@ -14,7 +14,8 @@ module.exports = {
     //   },
       upload: {
         /* Add configuration here */
-        target: 'temporary-public-storage'
+        target: 'filesystem',
+        outputDir: '/tmp/reports'
       },
     },
   };

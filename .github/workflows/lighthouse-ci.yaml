@@ -16,4 +16,13 @@ jobs:
       - name: run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.3.x
-          lhci autorun --upload.target=temporary-public-storage --config monorepo-ci-space/lighthouserc.js || echo "LHCI failed!"
+          lhci autorun --config monorepo-ci-space/lighthouserc.js || echo "LHCI failed!"
+      - name: Upload Reports
+        uses: actions/[email protected]
+        with:
+          name: Lighthouse reports
+          path: /tmp/reports
+          awsAccessKeyId: ${{ secrets.LIGHTHOUSE_AWS_ACCESS_KEY_ID }}
+          awsBucket: lighthouse-ci-reports
+          awsRegion: us-east-1
+          awsSecretAccessKey: ${{ secrets.LIGHTHOUSE_AWS_SECRET_ACCESS_KEY }}
