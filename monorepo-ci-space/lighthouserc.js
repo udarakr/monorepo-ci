@@ -2,6 +2,7 @@ module.exports = {
     ci: {
       collect: {
         /* Add configuration here */
+        numberOfRuns: 3,
         startServerCommand: 'cd monorepo-ci-space && npm run nx -- serve app1',
         url: ['http://localhost:4200']
       },
