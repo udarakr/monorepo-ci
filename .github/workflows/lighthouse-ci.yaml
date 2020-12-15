@@ -10,7 +10,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 10.x
-      - name: npm install
+      - name: Run npm install
         run: |
           npm install --prefix monorepo-ci-space/
       - name: run Lighthouse CI
@@ -18,10 +18,12 @@ jobs:
           npm install -g @lhci/cli@0.6.1
           lhci autorun --config monorepo-ci-space/lighthouserc.js || echo "LHCI failed!"
       - name: Upload Reports
-        uses: shallwefootball/s3-upload-action@master
+        uses: jakejarvis/s3-sync-action@v0.5.1
         with:
-          source_dir: /tmp/reports
-          destination_dir: ''
-          aws_key_id: ${{ secrets.LIGHTHOUSE_AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.LIGHTHOUSE_AWS_SECRET_ACCESS_KEY }}
-          aws_bucket: lighthouse-ci-reports
+          args: --acl public-read --delete
+        env:
+          AWS_S3_BUCKET: "lighthouse-ci-reports"
+          AWS_ACCESS_KEY_ID: ${{ secrets.LIGHTHOUSE_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.LIGHTHOUSE_AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: "us-east-1"
+          SOURCE_DIR: "/tmp/reports"
