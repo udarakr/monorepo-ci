@@ -1,5 +1,5 @@
 name: Build project and run Lighthouse CI
-on: [push]
+on: [push, pull_request]
 jobs:
   lhci:
     name: Lighthouse CI
