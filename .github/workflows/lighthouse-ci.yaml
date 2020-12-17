@@ -19,7 +19,7 @@ jobs:
           lhci autorun --config monorepo-ci-space/lighthouse/lighthouserc-app1.js && lhci assert --no-lighthouserc --budgetsFile=./monorepo-ci-space/lighthouse/budget.json
           lhci autorun --config monorepo-ci-space/lighthouse/lighthouserc-app2.js && lhci assert --no-lighthouserc --budgetsFile=./monorepo-ci-space/lighthouse/budget.json
       - name: Upload Reports
-        if: github.event.pull_request.merged
+        if: github.event.pull_request.merged == true
         uses: jakejarvis/s3-sync-action@v0.5.1
         with:
           args: --acl public-read --delete
