@@ -2,4 +2,3 @@ lh
 .lighthouseci
 monorepo-ci-space/.lighthouseci
 .DS_Store
-.vscode
