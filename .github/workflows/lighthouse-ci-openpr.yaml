@@ -1,22 +1,22 @@
-name: Build project and run Lighthouse CI [Open Pull Request]
-on:
-  pull_request:
-    types: [opened]
-jobs:
-  lhci:
-    name: Lighthouse CI
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js 10.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 10.x
-      - name: Run npm install
-        run: |
-          npm install --prefix monorepo-ci-space/
-      - name: Run Lighthouse CI and Budgets
-        run: |
-          npm install -g @lhci/cli@0.6.1
-          lhci autorun --config monorepo-ci-space/lighthouse/lighthouserc-app1.js && lhci assert --no-lighthouserc --budgetsFile=./monorepo-ci-space/lighthouse/budget.json
-          lhci autorun --config monorepo-ci-space/lighthouse/lighthouserc-app2.js && lhci assert --no-lighthouserc --budgetsFile=./monorepo-ci-space/lighthouse/budget.json
+# name: Build project and run Lighthouse CI [Open Pull Request]
+# on:
+#   pull_request:
+#     types: [opened]
+# jobs:
+#   lhci:
+#     name: Lighthouse CI
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v1
+#       - name: Use Node.js 10.x
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: 10.x
+#       - name: Run npm install
+#         run: |
+#           npm install --prefix monorepo-ci-space/
+#       - name: Run Lighthouse CI and Budgets
+#         run: |
+#           npm install -g @lhci/cli@0.6.1
+#           lhci autorun --config monorepo-ci-space/lighthouse/lighthouserc-app1.js && lhci assert --no-lighthouserc --budgetsFile=./monorepo-ci-space/lighthouse/budget.json
+#           lhci autorun --config monorepo-ci-space/lighthouse/lighthouserc-app2.js && lhci assert --no-lighthouserc --budgetsFile=./monorepo-ci-space/lighthouse/budget.json
