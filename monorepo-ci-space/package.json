@@ -25,7 +25,9 @@
     "update": "ng update @nrwl/workspace",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "lhci-app1": "lhci autorun --config ./lighthouse/lighthouserc-app1.js && lhci assert --no-lighthouserc --budgetsFile=./lighthouse/budget.json",
+    "lhci-app2": "lhci autorun --config ./lighthouse/lighthouserc-app1.js && lhci assert --no-lighthouserc --budgetsFile=./lighthouse/budget.json"
   },
   "private": true,
   "dependencies": {
@@ -64,6 +66,7 @@
     "tslint": "~6.0.0",
     "typescript": "~4.0.3",
     "cypress": "^5.5.0",
-    "@nrwl/cypress": "10.4.4"
+    "@nrwl/cypress": "10.4.4",
+    "@lhci/cli": "0.6.1"
   }
 }
