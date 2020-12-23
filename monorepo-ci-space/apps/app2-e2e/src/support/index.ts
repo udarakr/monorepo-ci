@@ -15,3 +15,4 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands';
+import '@monorepo-ci-space/shared/e2e-utils';
