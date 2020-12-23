@@ -7,9 +7,7 @@ declare namespace Cypress {
     }
   }
   
-  Cypress.Commands.add(
-    'getEl',
-    { prevSubject: 'optional' },
+  Cypress.Commands.add('getEl',{ prevSubject: 'optional' },
     (subject: Cypress.Chainable, identifier: string) => {
       if (subject) {
         return subject.find(`[data-cy="${identifier}"]`);

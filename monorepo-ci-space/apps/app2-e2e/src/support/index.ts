@@ -16,3 +16,9 @@
 // Import commands.js using ES2015 syntax:
 import './commands';
 import '@monorepo-ci-space/shared/e2e-utils';
+
+Cypress.on('test:after:run', (attributes) => {
+    /* eslint-disable no-console */
+    console.log('Test "%s" has finished in %dms',
+    attributes.title, attributes.duration)
+})
